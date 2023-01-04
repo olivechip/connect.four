@@ -1,11 +1,15 @@
 body {
+    font-family: Quicksand;
     background-color: #282828;
+    text-align: center;
+    color: gold;
+    margin-top: 5rem;
 }
   
 table.center {
     margin-left:auto; 
     margin-right:auto;
-    margin-top: 20%;
+    margin-top: 3rem;
 }
   
 #board td {
@@ -23,11 +27,11 @@ table.center {
 }
   
 .p1 {
-    background-color: red;
+    background-color: rgb(155, 9, 9);
 }
 
 .p2 {
-    background-color: blue;
+    background-color: #1469be;
 }
     
 #column-top td {
