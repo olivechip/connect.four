@@ -1,7 +1,7 @@
 // Connect Four
-// Player 1 and 2 alternate turns. On each turn, a piece is dropped down a
-// column until a player gets four-in-a-row (horiz, vert, or diag) or until
-// board fills (tie)
+// Player 1 and Player 2 alternate turns. On each turn, a piece is dropped down a
+// column until a player gets four-in-a-row to win the game. Horizontal, vertical, or diagonal alignments all work. 
+// If the board fills with no winner, the game results in a tie. Good luck!
 
 const WIDTH = 7;
 const HEIGHT = 6;
