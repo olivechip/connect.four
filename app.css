@@ -40,4 +40,5 @@ table.center {
   
 #column-top td:hover {
     background-color: gold;
+    transition: all ease-in-out 2s;
 }

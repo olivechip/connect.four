@@ -7,6 +7,7 @@ const WIDTH = 7;
 const HEIGHT = 6;
 
 let currPlayer = 1; // active player: 1 or 2
+let score = []; //declare score for localStorage
 const board = []; // array of rows, each row is array of cells (board[y][x])
 
 // sanity check for board layout
@@ -36,6 +37,7 @@ function makeHtmlBoard() {
 
 //   create a new cell w/ id of 'x' for each WIDTH and append them to the new row w/ id of 'column-top'; append the '#column-top' row to the htmlBoard 
   const top = document.createElement("tr");
+  top.classList.add(`player${currPlayer}hover`);
   top.setAttribute("id", "column-top");
   top.addEventListener("click", handleClick);
 
@@ -105,8 +107,15 @@ function handleClick(evt) {
   board[y][x] = currPlayer;
 
 
-  // check for win
+  // check for win, update scores, declare winner
   if (checkForWin()) {
+    if (currPlayer == 1){
+        score[0] ++;
+        localStorage.setItem('streakP1', score[0]);
+    } else {
+        score[1] ++;
+        localStorage.setItem('streakP2', score[1]);
+    }
     return endGame(`Player ${currPlayer} won!`);
   }
 
@@ -161,3 +170,17 @@ function checkForWin() {
 // load game on DOM load
 makeBoard();
 makeHtmlBoard();
+
+// load scores from localStorage
+if (!localStorage.getItem('streakP1') && !localStorage.getItem('streakP1')){
+    score = [0,0];
+} else if (localStorage.getItem('streakP1') && !localStorage.getItem('streakP2')){
+    score[0] = parseInt(localStorage.getItem('streakP1'));
+    score[1] = 0;
+} else if (!localStorage.getItem('streakP1') && localStorage.getItem('streakP2')){
+    score[0] = 0;
+    score[1] = parseInt(localStorage.getItem('streakP2'));
+} else {
+    score[0] = parseInt(localStorage.getItem('streakP1'));
+    score[1] = parseInt(localStorage.getItem('streakP2'));
+}
