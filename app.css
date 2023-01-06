@@ -3,50 +3,61 @@ body {
     background-color: #282828;
     text-align: center;
     color: gold;
-    margin-top: 5rem;
+    margin-top: 3rem;
 }
-
-/* #start {
-figure out how to enlarge and center this button
-} */
 
 #game {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    max-height: 460px;
 }
-
-#scores {
-    flex: 1;
-}
-
-#scores h3{
-    display: inline-block;
-    width: 230px;
-    text-align: center;
-    margin-left: 30rem;
-    margin-right: 0;
-}
-#scores p {
-    display: inline-block;
-    width: 230px;
-    text-align: center;
-    margin-left: 30rem;
-    margin-right: 0;
-}
-
-/* #scores p span {
-    float: right;
-} */
 
 h1 {
-    position: relative;
     margin-left: auto; 
     margin-right: auto;
     min-width: 400px;
     max-width: 400px;
     margin-top: 1.5rem;
 }
+
+#scores {
+    flex: 1;
+    min-width: 400px;
+}
+
+#scores h3 {
+    text-align: right;
+    margin-right: 2rem;
+}
+
+#rules {
+    flex: 1;
+    min-width: 400px;
+}
+
+#rules h3{
+    width: 390px;
+    text-align: left;
+    margin-left: 2rem;
+}
+
+#scores p {
+    margin-top: 2rem;
+    margin-right: 2em;
+    margin-bottom: 5rem;
+    text-align: right;
+}
+
+#rules p {
+    margin-top: 2rem;
+    margin-right: 5rem;
+    margin-bottom: 5rem;
+    margin-left: 2rem;
+    width: 230px;
+    text-align: left;
+}
+
 table {
     position: relative;
     margin-left: auto; 
@@ -56,21 +67,6 @@ table {
     min-height: 400px;
     max-height: 400px;
     margin-top: 1.5rem;
-}
-
-#rules {
-    flex: 1;
-}
-
-#rules h3{
-    width: 390px;
-    text-align: center;
-}
-
-p {
-    margin: 2rem 5rem 5rem 5rem;
-    width: 230px;
-    text-align: center;
 }
 
 .red {
@@ -89,7 +85,17 @@ p {
     height: 50px;
     border: solid 1px #666;
 }
+    
+#column-top td {
+    border: dashed 1px lightgray;
+}
   
+#column-top td:hover {
+    background-color: gold;
+    transition: all ease-in-out 0.5s;
+    cursor: grab;
+}
+
 .piece {
     margin: 5px;
     width: 80%;
@@ -103,16 +109,6 @@ p {
 
 .p2 {
     background-color: #1469be;
-}
-    
-#column-top td {
-    border: dashed 1px lightgray;
-}
-  
-#column-top td:hover {
-    background-color: gold;
-    transition: all ease-in-out 0.5s;
-    cursor: grab;
 }
 
 button {

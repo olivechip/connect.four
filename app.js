@@ -189,6 +189,7 @@ resetButton.addEventListener('click',function(e){
     p1score.innerHTML = score[0];
     p2score.innerHTML = score[1];
     localStorage.clear();
+    location.reload();
 })
 
 // restart button submits empty form, refreshes page
@@ -203,9 +204,9 @@ startButton.addEventListener('click',function(){
     currPlayer = Math.floor(Math.random()*2)+1;
     setPlayerTurn();
     startButton.remove();
-    resetButton.remove();
+    // resetButton.remove();
 
-    const buttons = document.querySelector('#buttons');
+    const buttons = document.querySelector('#bottomButtons');
     buttons.appendChild(restartButton);
 })
 
