@@ -204,6 +204,9 @@ startButton.addEventListener('click',function(){
     setPlayerTurn();
     startButton.remove();
     resetButton.remove();
+
+    const buttons = document.querySelector('#buttons');
+    buttons.appendChild(restartButton);
 })
 
 // load storage on DOM Load
@@ -237,3 +240,5 @@ function setPlayerTurn(){
         p1turn.innerText = 'Player 1';
     }
 }
+
+restartButton.remove();

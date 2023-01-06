@@ -88,17 +88,10 @@ p {
     cursor: grab;
 }
 
-#scores span {
-    display: block;
-    padding-left: 15rem;
-    padding-right: 1rem;
-}
-
 button {
     font-family: Quicksand;
     color: gold;
     background-color: #282828;
     border-color: gold;
-    margin-top: .75rem;
     cursor: pointer;
 }
