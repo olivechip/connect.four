@@ -20,6 +20,33 @@ figure out how to enlarge and center this button
     flex: 1;
 }
 
+#scores h3{
+    display: inline-block;
+    width: 230px;
+    text-align: center;
+    margin-left: 30rem;
+    margin-right: 0;
+}
+#scores p {
+    display: inline-block;
+    width: 230px;
+    text-align: center;
+    margin-left: 30rem;
+    margin-right: 0;
+}
+
+/* #scores p span {
+    float: right;
+} */
+
+h1 {
+    position: relative;
+    margin-left: auto; 
+    margin-right: auto;
+    min-width: 400px;
+    max-width: 400px;
+    margin-top: 1.5rem;
+}
 table {
     position: relative;
     margin-left: auto; 
