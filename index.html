@@ -8,19 +8,30 @@
 </head>
 <body>
     <h1>Connect 4</h1>
+    <div>
+        <button id="start">Start Game!</button>
+    </div>
 <div id="game">
     <div id="scores">
-        <h3>Scores</h3>
+        <!-- <h3>Scores</h3> -->
+        <br><br><br><br>
+            <span class="red" id="p1turn">Player 1</span><br><span id="p1score">score*</span><br><br><br><br>
+            <span class="blue" id="p2turn">Player 2</span><br><span id="p2score">score*</span>
     </div>
     <table id="board"></table>
     <div id="rules">
         <h3>Rules</h3>
-        <p><span class="red">Player 1</span> and <span class="blue">Player 2</span> alternate turns. <br><br>
+        <p>A player will be chosen randomly to go first.<br><br><span class="red">Player 1</span> and <span class="blue">Player 2</span> alternate turns. <br><br>
             On each turn, a piece is dropped down a column until a player gets four-in-a-row to win the game. <br><br>
-            Horizontal, vertical, or diagonal alignments all work. <br><br> If the board fills with no winner, 
-            the game results in a tie. <br><br>Good luck!
+            Horizontal, vertical, or diagonal alignments all work.<br><br> If the board fills with no winner, 
+            the game results in a tie.<br><br>Good luck!
         </p>
     </div>
+</div>
+
+<div>
+    <button id="reset">Reset Scores</button>
+    <button id="restart">Restart Game</button>
 </div>
 
 <script src="app.js"></script>

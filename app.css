@@ -6,6 +6,10 @@ body {
     margin-top: 5rem;
 }
 
+/* #start {
+figure out how to enlarge and center this button
+} */
+
 #game {
     display: flex;
     flex-direction: row;
@@ -17,17 +21,29 @@ body {
 }
 
 table {
-    margin-left:auto; 
-    margin-right:auto;
-    margin-top: 3rem;
+    position: relative;
+    margin-left: auto; 
+    margin-right: auto;
+    min-width: 400px;
+    max-width: 400px;
+    min-height: 400px;
+    max-height: 400px;
+    margin-top: 1.5rem;
 }
 
 #rules {
     flex: 1;
 }
 
+#rules h3{
+    width: 390px;
+    text-align: center;
+}
+
 p {
     margin: 2rem 5rem 5rem 5rem;
+    width: 230px;
+    text-align: center;
 }
 
 .red {
@@ -68,5 +84,21 @@ p {
   
 #column-top td:hover {
     background-color: gold;
-    transition: all ease-in-out 2s;
+    transition: all ease-in-out 0.5s;
+    cursor: grab;
+}
+
+#scores span {
+    display: block;
+    padding-left: 15rem;
+    padding-right: 1rem;
+}
+
+button {
+    font-family: Quicksand;
+    color: gold;
+    background-color: #282828;
+    border-color: gold;
+    margin-top: .75rem;
+    cursor: pointer;
 }

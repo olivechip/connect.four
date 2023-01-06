@@ -6,7 +6,7 @@
 const WIDTH = 7;
 const HEIGHT = 6;
 
-let currPlayer = 1; // active player: 1 or 2
+let currPlayer = 0; // active player: 1 or 2
 let score = []; //declare score for localStorage
 const board = []; // array of rows, each row is array of cells (board[y][x])
 
@@ -19,6 +19,15 @@ const board = []; // array of rows, each row is array of cells (board[y][x])
 //     [ null, null, null, null, null, null, null ],
 //     [ null, null, null, null, null, null, null ],
 //   ];
+
+// declaring global variables
+const p1score = document.querySelector('#p1score'); 
+const p2score = document.querySelector('#p2score'); 
+const startButton = document.querySelector('#start');
+const resetButton = document.querySelector('#reset');
+const restartButton = document.querySelector('#restart');
+const p1turn = document.querySelector('#p1turn');
+const p2turn = document.querySelector('#p2turn');
 
 // makeBoard: create in-JS board structure:
 // board = array of rows, each row is array of cells  (board[y][x])
@@ -87,7 +96,9 @@ function placeInTable(y, x) {
 
 // endGame: announce game end 
 function endGame(msg) {
-  alert(msg);
+    if(!alert(msg)){
+        location.reload();
+    }
 }
 
 // handleClick: handle click of column top to play piece
@@ -111,9 +122,11 @@ function handleClick(evt) {
   if (checkForWin()) {
     if (currPlayer == 1){
         score[0] ++;
+        p1score.innerHTML = score[0];
         localStorage.setItem('streakP1', score[0]);
     } else {
         score[1] ++;
+        p2score.innerHTML = score[1];
         localStorage.setItem('streakP2', score[1]);
     }
     return endGame(`Player ${currPlayer} won!`);
@@ -133,6 +146,8 @@ function handleClick(evt) {
 
   // switch players
   currPlayer === 1 ? currPlayer = 2 : currPlayer = 1;
+
+  setPlayerTurn();
 }
 
 function checkForWin() {
@@ -167,12 +182,36 @@ function checkForWin() {
   }
 }
 
-// load game on DOM load
-makeBoard();
-makeHtmlBoard();
+// reset button clears localStorage, sets and updates score
+resetButton.addEventListener('click',function(e){
+    e.preventDefault();
+    score = [0,0];
+    p1score.innerHTML = score[0];
+    p2score.innerHTML = score[1];
+    localStorage.clear();
+})
+
+// restart button submits empty form, refreshes page
+restartButton.addEventListener('click',function(){
+    location.reload();
+})
+
+// startButton loads game boards and choose Player at random, removes Start Button after
+startButton.addEventListener('click',function(){
+    makeBoard();
+    makeHtmlBoard();
+    currPlayer = Math.floor(Math.random()*2)+1;
+    setPlayerTurn();
+    startButton.remove();
+    resetButton.remove();
+})
+
+// load storage on DOM Load
+loadStorage();
 
 // load scores from localStorage
-if (!localStorage.getItem('streakP1') && !localStorage.getItem('streakP1')){
+function loadStorage(){
+    if (!localStorage.getItem('streakP1') && !localStorage.getItem('streakP1')){
     score = [0,0];
 } else if (localStorage.getItem('streakP1') && !localStorage.getItem('streakP2')){
     score[0] = parseInt(localStorage.getItem('streakP1'));
@@ -183,4 +222,18 @@ if (!localStorage.getItem('streakP1') && !localStorage.getItem('streakP1')){
 } else {
     score[0] = parseInt(localStorage.getItem('streakP1'));
     score[1] = parseInt(localStorage.getItem('streakP2'));
+}
+    p1score.innerHTML = score[0];
+    p2score.innerHTML = score[1];
+}
+
+function setPlayerTurn(){
+    if (currPlayer === 1){
+        p1turn.innerHTML = `It's Player ${currPlayer}'s Turn!`
+        p2turn.innerText = 'Player 2';
+    }
+    if (currPlayer === 2){
+        p2turn.innerHTML = `It's Player ${currPlayer}'s Turn!`
+        p1turn.innerText = 'Player 1';
+    }
 }
